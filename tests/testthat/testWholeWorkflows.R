@@ -55,16 +55,16 @@ test_that('Check basic quoted workflow.', {
 
 test_that('modules downloading data work', {
 
-#   work2 <- workflow(occurrence = SpOcc(species = 'Anopheles plumbeus',
-#                                        extent = c(-10, 10, 45, 65)),
-#                     covariate = UKAir,
-#                     process = OneHundredBackground,
-#                     model = RandomForest, 
-#                     output = SameTimePlaceMap)
-#   
-#   expect_true(exists('work2'))
-#   expect_equal(names(work2), expected_names) 
-#   expect_is(work2$occurrence.output[[1]], 'data.frame')
+   work2 <- workflow(occurrence = SpOcc(species = 'Anopheles plumbeus',
+                                        extent = c(-10, 10, 45, 65)),
+                     covariate = UKAir,
+                     process = OneHundredBackground,
+                     model = RandomForest, 
+                     output = SameTimePlaceMap)
+   
+   expect_true(exists('work2'))
+   expect_equal(names(work2), expected_names) 
+   expect_is(work2$occurrence.output[[1]], 'data.frame')
 #   expect_equal(names(work2$occurrence.output[[1]]), c('longitude', 'latitude', 'value', 'type', 'fold'))
 #   expect_true(all(work2$occurrence.output[[1]][,'longitude'] < 20))
 #   expect_true(all(work2$occurrence.output[[1]][,'longitude'] > -20))
