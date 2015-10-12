@@ -1,7 +1,7 @@
 context('plot.zoonwWorkflow')
 
 dir <- tempdir()
-dir.create(dir, showWarnings = FALSE)
+# dir.create(dir, showWarnings = FALSE)
 
 test_that('plot.zoonWorkflow works', {
 
@@ -16,4 +16,4 @@ test_that('plot.zoonWorkflow works', {
   ### use rplots.pdf to test plotting?
 })
 
-unlink(x = dir, recursive = TRUE)
+# unlink(x = dir, recursive = TRUE)
