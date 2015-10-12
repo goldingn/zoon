@@ -63,7 +63,7 @@ test_that('modules downloading data work', {
                      process = OneHundredBackground,
                      model = RandomForest, 
                      output = SameTimePlaceMap)
-   
+   stop(paste0(capture.output(str(work2[1:5])), collapse = '\n'))
    expect_true(exists('work2'))
    expect_equal(names(work2), expected_names) 
    expect_is(work2$occurrence.output[[1]], 'data.frame')
