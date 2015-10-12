@@ -55,6 +55,8 @@ test_that('Check basic quoted workflow.', {
 
 test_that('modules downloading data work', {
 
+   skip_on_CRAN()
+
    work2 <- workflow(occurrence = SpOcc(species = 'Anopheles plumbeus',
                                         extent = c(-10, 10, 45, 65)),
                      covariate = UKAir,
