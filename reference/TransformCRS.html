@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>ExtractAndCombData — ExtractAndCombData • zoon R package</title>
+<title>Change the CRS of occurrence data — TransformCRS • zoon R package</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -27,11 +27,11 @@
 <script src="../pkgdown.js"></script>
   
   
-<meta property="og:title" content="ExtractAndCombData — ExtractAndCombData" />
+<meta property="og:title" content="Change the CRS of occurrence data — TransformCRS" />
 
-<meta property="og:description" content="Simply extract covariates from rasters and combine with occurrence data.
-This function is primarily used internally but can be used when
-running workflows interactively (see vignette basic zoon useage)" />
+<meta property="og:description" content="Takes a dataframe returned by an occurrence module or a raster object from a
+covariate module and converts the CRS to lat/long so that everything works
+together." />
 <meta name="twitter:card" content="summary" />
 <!-- mathjax -->
 <script src='https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
@@ -106,29 +106,34 @@ running workflows interactively (see vignette basic zoon useage)" />
       <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>ExtractAndCombData</h1>
+    <h1>Change the CRS of occurrence data</h1>
     </div>
 
     
-    <p>Simply extract covariates from rasters and combine with occurrence data.
-This function is primarily used internally but can be used when
-running workflows interactively (see vignette <code>basic zoon useage</code>)</p>
+    <p>Takes a dataframe returned by an occurrence module or a raster object from a
+covariate module and converts the CRS to lat/long so that everything works
+together.</p>
     
 
-    <pre class="usage"><span class='fu'>ExtractAndCombData</span>(<span class='no'>occurrence</span>, <span class='no'>ras</span>)</pre>
+    <pre class="usage"><span class='fu'>TransformCRS</span>(<span class='no'>occurrence</span>, <span class='no'>ras_projection</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>occurrence</th>
-      <td><p>A data frame from an occurrence module</p></td>
+      <td><p>The output of an occurrence module</p></td>
     </tr>
     <tr>
-      <th>ras</th>
-      <td><p>Environmental raster layer, stack or brick.</p></td>
+      <th>ras_projection</th>
+      <td><p>The projection of a covariate layer as a character
+(from projection())</p></td>
     </tr>
     </table>
+    
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
+
+    <p>The same object as in occurrence, but with CRS changed as needed</p>
     
 
   </div>
@@ -136,7 +141,9 @@ running workflows interactively (see vignette <code>basic zoon useage</code>)</p
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
       <li><a href="#arguments">Arguments</a></li>
-                </ul>
+      
+      <li><a href="#value">Value</a></li>
+          </ul>
 
   </div>
 </div>

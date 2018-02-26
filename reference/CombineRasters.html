@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>ExtractAndCombData — ExtractAndCombData • zoon R package</title>
+<title>Combine rasters — CombineRasters • zoon R package</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -27,11 +27,12 @@
 <script src="../pkgdown.js"></script>
   
   
-<meta property="og:title" content="ExtractAndCombData — ExtractAndCombData" />
+<meta property="og:title" content="Combine rasters — CombineRasters" />
 
-<meta property="og:description" content="Simply extract covariates from rasters and combine with occurrence data.
-This function is primarily used internally but can be used when
-running workflows interactively (see vignette basic zoon useage)" />
+<meta property="og:description" content="A generalised function to combine rasters of differing CRS and resolution.
+The function takes and returns a list of Raster* objects. The final CRS is
+the one most frequent in the rasters being combined, or lat/long if there is
+no CRS is most frequent" />
 <meta name="twitter:card" content="summary" />
 <!-- mathjax -->
 <script src='https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
@@ -106,29 +107,38 @@ running workflows interactively (see vignette basic zoon useage)" />
       <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>ExtractAndCombData</h1>
+    <h1>Combine rasters</h1>
     </div>
 
     
-    <p>Simply extract covariates from rasters and combine with occurrence data.
-This function is primarily used internally but can be used when
-running workflows interactively (see vignette <code>basic zoon useage</code>)</p>
+    <p>A generalised function to combine rasters of differing CRS and resolution.
+The function takes and returns a list of Raster* objects. The final CRS is
+the one most frequent in the rasters being combined, or lat/long if there is
+no CRS is most frequent</p>
     
 
-    <pre class="usage"><span class='fu'>ExtractAndCombData</span>(<span class='no'>occurrence</span>, <span class='no'>ras</span>)</pre>
+    <pre class="usage"><span class='fu'>CombineRasters</span>(<span class='no'>rasters</span>, <span class='kw'>method</span> <span class='kw'>=</span> <span class='st'>"ngb"</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>occurrence</th>
-      <td><p>A data frame from an occurrence module</p></td>
+      <th>rasters</th>
+      <td><p>A list of Raster* objects to be converted to a common CRS and
+resolution</p></td>
     </tr>
     <tr>
-      <th>ras</th>
-      <td><p>Environmental raster layer, stack or brick.</p></td>
+      <th>method</th>
+      <td><p>The method used in raster::projectRaster. Either 'ngb' (nearest
+neighbor), which is useful for categorical variables, or 'bilinear'
+(bilinear interpolation; the default value), which is appropriate for
+continuous variables</p></td>
     </tr>
     </table>
+    
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
+
+    <p>A list of rasters</p>
     
 
   </div>
@@ -136,7 +146,9 @@ running workflows interactively (see vignette <code>basic zoon useage</code>)</p
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
       <li><a href="#arguments">Arguments</a></li>
-                </ul>
+      
+      <li><a href="#value">Value</a></li>
+          </ul>
 
   </div>
 </div>
